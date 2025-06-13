@@ -1,4 +1,4 @@
-AI Interview Coach App
+## AI Interview Coach App
 Project Overview
 The AI Interview Coach App is a full-stack web application designed to help job seekers practice and refine their interview skills using artificial intelligence. Users can simulate interview scenarios by generating personalized questions based on specific job roles and tech stacks, submit their answers, and receive instant, detailed AI-powered feedback on their performance. The application tracks past interview sessions, allowing users to review their progress and focus on areas for improvement.
 
