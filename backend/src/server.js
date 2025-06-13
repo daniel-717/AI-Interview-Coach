@@ -13,7 +13,7 @@ const app = express();
 const _dirname = path.resolve();
 
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: "https://ai-interview-app-pwdb.onrender.com",
     credentials: true, 
 }));
 
