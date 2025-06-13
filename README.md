@@ -1,5 +1,7 @@
 # 🧠 AI Interview Coach App
 
+[![Live Demo](https://img.shields.io/badge/Demo-Live-green?style=for-the-badge&logo=rocket)](https://ai-interview-app-pwdb.onrender.com/)
+
 ## 📌 Project Overview
 
 The **AI Interview Coach App** is a full-stack web application designed to help job seekers practice and refine their interview skills using artificial intelligence. 
