@@ -1,10 +1,11 @@
-// src/App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Login from './pages/Login.jsx'; // Updated to .jsx
-import Signup from './pages/Signup.jsx'; // Updated to .jsx
-import Dashboard from './pages/Dashboard.jsx'; // Updated to .jsx
-import ProtectedRoute from './components/ProtectedRoute.jsx'; // Updated to .jsx
+import Login from './pages/Login.jsx'; 
+import Signup from './pages/Signup.jsx'; 
+import Dashboard from './pages/Dashboard.jsx'; 
+import ProtectedRoute from './components/ProtectedRoute.jsx'; 
+import Home from './pages/Home.jsx'; 
+import PastSessionsPage from './pages/PastSessionsPage.jsx'; 
 
 function App() {
   return (
@@ -14,13 +15,12 @@ function App() {
           {/* Public Routes */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/" element={<Login />} /> {/* Default route */}
+          <Route path="/" element={<Home />} /> 
 
           {/* Protected Routes */}
-          {/* Outlet in ProtectedRoute renders the child component if authenticated */}
           <Route element={<ProtectedRoute />}>
             <Route path="/dashboard" element={<Dashboard />} />
-            {/* Add other protected routes here if needed */}
+            <Route path="/past-sessions" element={<PastSessionsPage />} />
           </Route>
         </Routes>
       </div>

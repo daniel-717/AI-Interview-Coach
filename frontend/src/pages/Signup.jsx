@@ -1,5 +1,3 @@
-// src/pages/Signup.js
-
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -10,7 +8,7 @@ const Signup = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(false); // Loading state for button
+  const [isLoading, setIsLoading] = useState(false); 
   const navigate = useNavigate();
 
   const handleSignup = async (e) => {
@@ -25,19 +23,16 @@ const Signup = () => {
     }
 
     try {
-      // Make a POST request to the backend registration endpoint
       const response = await axios.post('http://localhost:5000/api/auth/register', {
         name,
         email,
         password,
       });
 
-      // Store the JWT token in localStorage upon successful registration
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('userEmail', response.data.email);
       localStorage.setItem('userName', response.data.name);
 
-      // Redirect to the dashboard after successful signup
       navigate('/dashboard');
     } catch (err) {
       console.error('Signup error:', err.response?.data?.message || err.message);

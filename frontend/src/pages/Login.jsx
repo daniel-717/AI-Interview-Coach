@@ -1,6 +1,4 @@
-// src/pages/Login.js
-
-import React, { useState, useEffect } from 'react'; // Added useEffect for debugging
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -8,54 +6,39 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(false); // Loading state for button
+  const [isLoading, setIsLoading] = useState(false); 
   const navigate = useNavigate();
 
-  // Added useEffect for debugging useNavigate context
-  useEffect(() => {
-    console.log("Login component mounted. useNavigate hook is available.");
-    // This log helps confirm if the component is even reaching this point within a Router context.
-  }, []);
 
   const handleLogin = async (e) => {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault(); 
     setIsLoading(true);
-    setError(null); // Clear previous errors
+    setError(null); 
 
     try {
-      console.log("Attempting login with email:", email);
-      // Make a POST request to the backend login endpoint
       const response = await axios.post('http://localhost:5000/api/auth/login', {
         email,
         password,
       });
 
-      // Store the JWT token in localStorage upon successful login
       localStorage.setItem('token', response.data.token);
-      localStorage.setItem('userEmail', response.data.email); // Store email if useful
-      localStorage.setItem('userName', response.data.name); // Store name if useful
-      console.log("Login successful, token stored. Navigating to dashboard.");
-      // Redirect to the dashboard after successful login
+      localStorage.setItem('userEmail', response.data.email); 
+      localStorage.setItem('userName', response.data.name); 
       navigate('/dashboard');
     } catch (err) {
-      // Handle login errors (e.g., incorrect credentials)
       console.error('Login error:', err.response?.data?.message || err.message);
       setError(err.response?.data?.message || 'Login failed. Please try again.');
     } finally {
       setIsLoading(false);
-      console.log("Login attempt finished. isLoading set to false.");
     }
   };
 
-  // Debugging log for what is rendered inside the button
   const buttonContent = isLoading ? (
     <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white"></div>
   ) : (
     'Login'
   );
-  console.log("Button content to render:", buttonContent);
-
-
+  
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-800 to-purple-900 flex items-center justify-center p-4">
       <div className="bg-gray-800 p-8 rounded-xl shadow-2xl w-full max-w-md border border-gray-700">
@@ -101,7 +84,7 @@ const Login = () => {
             className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-800 flex items-center justify-center"
             disabled={isLoading}
           >
-            {buttonContent} {/* Render the pre-determined content */}
+            {buttonContent} 
           </button>
         </form>
         <p className="text-center text-gray-400 mt-6">
