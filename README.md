@@ -1,4 +1,4 @@
-# 🧠 AI Interview Coach App
+# AI Interview Coach App
 
 [![Live Demo](https://img.shields.io/badge/LIVE%20DEMO-green?style=for-the-badge&logo=rocket)](https://ai-interview-app-pwdb.onrender.com/)
 
